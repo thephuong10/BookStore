@@ -1,0 +1,3 @@
+auth:
+ tokenSecret: dGhlcGh1b25nanIxMA==
+ tokenExpirationMsec: 2592000000

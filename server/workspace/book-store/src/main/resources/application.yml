@@ -1,0 +1,49 @@
+spring:
+ datasource:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/sportshop?allowPublicKeyRetrieval=true&useSSL=false
+  username: root
+  password: ${DB-PASSWORD}
+  platform: mysql
+ jpa:
+  hibernate:
+   ddl-auto: update
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.MySQL8Dialect
+ security:
+  oauth2:
+   client:
+    registration:
+     google:
+      clientId: ${GG-CLIENT-ID}
+      clientSecret: ${GG-CLIENT-SECRET}
+      redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+      scope:
+       - email
+       - profile
+     facebook:
+      clientId: ${FB-CLIENT-ID}
+      clientSecret: ${FB-CLIENT-SECRET}
+      redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+      scope:
+       - email
+       - public_profile
+    
+ mail:
+  port: 587
+  host: smtp.gmail.com
+  username: mailSender12345az@gmail.com
+  password: ${GMAIL-PASSWORD}
+  default-encoding: UTF-8
+  properties:
+   mail:
+    transport:
+     protocol: smtp
+    smtp:
+     form: mailSender12345az@gmail.com
+     auth: true
+     starttls:
+      enable: true
+     ssl:
+      enable: false
